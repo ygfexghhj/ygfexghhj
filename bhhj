@@ -1,0 +1,28 @@
+          <div class="box-m">       <!--特色美食部分-->
+				<div class="box-h-j">
+					<p>－－特色美食－－</p>
+				</div>
+				<ul class="box-m-x">
+					<li class="box-m-1">
+						<img src="img/m1.jpg" />
+						<div class="box-m-wz">
+							<span class="activ">磁县胖妮熏鸡</span>
+							<p>磁县胖妮熏鸡起源于磁县磁洲滏阳街焦家，焦明老人始创制，已有100多年的历史，至今已是五代传人。水分少、皮缩裂、肉外露、香味浓、肉质嫩，素称存放一年不变质。由此，胖妮熏鸡声誉大振，堪称磁洲一绝。</p>
+						</div>
+					</li>
+					<li class="box-m-1">
+						<img src="img/m2.jpg" />
+						<div class="box-m-wz">
+							<span class="activ">老槐树烧饼</span>
+							<p>津津乐老槐树烧饼是邯郸市饮食总公司经营了半个世纪的风味食品，因经营场地旁有一棵老槐树而得其名。以精粉、花椒盐、小炉烘烤，火候均匀。接近烤熟前。再用薄刀片绕饼盖拉一圈口，色泽焦黄，酥脆味美。</p>
+						</div>
+					</li>
+					<li class="box-m-1">
+						<img src="img/m3.jpg" />
+						<div class="box-m-wz">
+							<span class="activ">永年驴肉香肠</span>
+							<p>永年县驴肉香肠源于清朝末年，已有近百年的历史，属传统小吃流传至今，是河北省永年县的地方风味特，驴肉以其质高味美被尊为上乘佳品。以永年“马连升、东之驴、饭店大楼”三个首，深受消费者的欢迎。  </p>
+						</div>
+					</li>
+				</ul>
+			</div>

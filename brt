@@ -1,0 +1,55 @@
+@-webkit-keyframes press2 {
+			  0% {
+			    box-shadow: 0 10px #d6d6d6;
+			    top: 0px;
+			  }
+			  100% {
+			    box-shadow: 0 0px #d6d6d6;
+			    top: 10px;
+			  }
+			}
+			@keyframes press2 {
+			  0% {
+			    box-shadow: 0 10px #d6d6d6;
+			    top: 0px;
+			  }
+			  100% {
+			    box-shadow: 0 0px #d6d6d6;
+			    top: 10px;
+			  }
+			}
+			.game_inner__footer {
+			  position: fixed;
+			  left: 50px;
+			  font-size: 7px;
+			  z-index: 2;
+			  bottom: 40px;
+			  width: calc(100% - 100px);
+			}
+			.game_inner__footer .madeby {
+			  position: relative;
+			  top: 50px;
+			}
+			.game_inner__footer .resources {
+			  float: right;
+			}
+			.game_inner__footer .resources div {
+			  margin: 0 0 10px 0;
+			  font-size: 12px;
+			}
+			.game_inner__footer .resources div img {
+			  position: relative;
+			  top: 3px;
+			  margin-right: 8px;
+			}
+			.game_inner__footer a {
+			  color: #d0295f;
+			  text-decoration: none;
+			}
+			.game_inner__left {
+			  text-align: center;
+			  float: left;
+			  position: relative;
+			  width: calc(100%);
+			  height: 100vh;
+			}

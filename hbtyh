@@ -1,0 +1,61 @@
+restart(audio) {
+		    let sample = this._globalAudio[audio];
+		
+		    if (sample != undefined) {
+		      // Get the current audio object in the stack
+		      let index = sample.index;
+		      let aud = sample[index];
+		
+		      // Stop the audio object
+		      aud.pause();
+		      aud.currentTime = 0;
+		      aud.play();
+		    }
+		  }
+		
+		  pause(audio) {
+		    let sample = this._globalAudio[audio];
+		
+		    if (sample != undefined) {
+		      // Get the current audio object in the stack
+		      let index = sample.index;
+		      let aud = sample[index];
+		
+		      // Stop the audio object
+		      aud.pause();
+		    }
+		  }
+		
+		  mute(audio) {
+		    let sample = this._globalAudio[audio];
+		
+		    sample.forEach(function (s) {
+		      s.volume = 0;
+		    });
+		  }
+		
+		  setVolume(audio, volume) {
+		    let sample = this._globalAudio[audio];
+		    let vol = volume / 100;
+		
+		    sample.forEach(function (s) {
+		      s.volume = vol;
+		    });
+		  }
+		
+		  // Destroy an audio sample to save memory
+		
+		  destroy(audio) {
+		    this._globalAudio[audio] = undefined;
+		  }
+		
+		  stopAll() {
+		    Object.keys(this._globalAudio).forEach(
+		      function (key) {
+		        this._globalAudio[key].forEach(function (aud) {
+		          aud.pause();
+		          aud.currentTime = 0;
+		        });
+		      }.bind(this)
+		    );
+		  }

@@ -1,0 +1,7 @@
+QObject::connect(webView, &QWebEngineView::loadStarted, [=](){
+    // 显示加载进度条或加载动画
+    loadingIndicator->start();
+    // 禁止用户与界面的某些交互
+    someInteractiveWidget->setEnabled(false);
+    qDebug() << "Web page loading started...";
+});

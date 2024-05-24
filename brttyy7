@@ -1,0 +1,13 @@
+/**
+ * 自定义CSV读取配置
+ * @return CSVFormat
+ */
+public static CSVFormat readCustomCsvFormat(){
+    return CSVFormat.Builder.create()
+            .setDelimiter("|+|") // 自定义数据字段为|+|替换默认的逗号
+            .setTrim(true) // 去除数据两边的空格，如 "Abc " 则实际输出为"Abc"，但是数据为"A bc",实际输出还是"A bc"
+            .setIgnoreEmptyLines(true) // 忽略空行
+            .setHeader(CSV_HEAD) // CSV 表头
+            .setSkipHeaderRecord(true) // 跳过表头(需要设置表头后生效)
+            .build();
+}

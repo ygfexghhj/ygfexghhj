@@ -1,0 +1,16 @@
+using System.ComponentModel.DataAnnotations;
+​
+namespace test_vs_api.Entities
+{
+    public class User
+    {
+        public int id { get; set; }
+        public required string  UserName { get; set; }
+        public required string Password { get; set; }
+​
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "请输入有效的邮箱地址。")] // 像这样
+        public required string Email { get; set; }
+        public required string NickName { get; set; }
+        public required DateTime CreateTime { get; set; }
+    }
+}

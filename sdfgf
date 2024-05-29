@@ -1,0 +1,16 @@
+server {
+    listen 81;
+    server_name www.domain1.com;
+ 
+    location / {
+        # 设置反向代理
+        proxy_pass http://xxxx1:8080;
+ 
+        # 修改 Cookie 中的域名
+        proxy_cookie_domain www.xxxx1.com www.xxxx2.com;
+ 
+        # 添加头部信息以处理跨域请求
+        add_header Access-Control-Allow-Origin http://www.xxxx2.com; # 当前端只跨域不带 Cookie 时，可以使用 * 
+        add_header Access-Control-Allow-Credentials true;
+    }
+}

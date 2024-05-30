@@ -1,0 +1,18 @@
+回应包respose
+HTTP/1.1（http协议版本） 302（状态码） Found（状态描述） 状态行
+Date: Thu, 29 Feb 2024 09:38:01 GMT 请求发送的时间和日期，GMT时间
+Server: Apache 告诉客户端服务器的名称和版本号；
+X-Powered-By: PHP/7.2.24 造诉客户端服务器采用的CMS框架
+X-XSS-Protection: 0
+X-UA-Compatible: IE=EmulateIE7
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Location: ?sid=0867b6a6c82ddf6fa9bc214d6a51f1f3c01527cf
+Strict-Transport-Security: max-age=315360000;
+Content-Length: 0 响应正文长度
+Connection: close 告诉客户端响应完成后的链接状态
+Content-Type: textml; charset=UTF-8 响应正文的MIME类型
+last-modified: 日期，用于指示资源的最后修改日期和时间
+--空行
+响应正文

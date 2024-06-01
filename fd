@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS 
+#include"greedysnake.h"
+ 
+int main()
+{
+	srand((unsigned int)time(NULL));
+	setlocale(LC_ALL, "");
+ 
+	GSnake snake = { 0 };
+	//游戏初始化
+	GameStart(&snake);
+ 
+	//游戏运行中
+	GameRun(&snake);
+ 
+	GameEnd(&snake);
+	SetPos(0, 33);
+	system("pause");
+	return 0;
+}

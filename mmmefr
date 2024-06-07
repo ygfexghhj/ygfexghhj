@@ -1,0 +1,12 @@
+stage = new PIXI.Container();
+    waveCount = 2000;
+    partCount = 1000;
+    waves = [];
+    parts = [];
+    document.body.appendChild(renderer.view);
+    reset();
+    for (var i = 0; i < 300; i++) {
+      step();
+    }
+    loop();
+  }

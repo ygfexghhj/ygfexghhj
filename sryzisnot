@@ -1,0 +1,29 @@
+  string birth = idNumber.Substring(6, 6).Insert(4, "-").Insert(2, "-");
+                        DateTime time = new DateTime();
+                        if (DateTime.TryParse(birth, out time) == false)
+                        {
+                            return false;//生日验证  
+                        }
+                        return true;
+                    }   
+        public bool isNotNull(string value){
+            return value.Length==0?false:true;
+        }
+        public bool IsNumeric(string value)
+        {
+                 return Regex.IsMatch(value, @"^[+-]?\d*[.]?\d*$");
+        }
+        public bool IsBNumeric(string value)
+        {
+                 if(Regex.IsMatch(value, @"^[+-]?\d*[.]?\d*$")==true){
+                     return float.Parse(value)>=0?true:false;
+                 }
+            return false;
+        }
+        public bool IsSNumeric(string value)
+        {
+                 if(Regex.IsMatch(value, @"^[+-]?\d*[.]?\d*$")==true){
+                     return float.Parse(value)<0?true:false;
+                 }
+            return false;
+        }

@@ -1,0 +1,23 @@
+//OurHeroController.cs
+using Microsoft.AspNetCore.Mvc;
+using SimpleWebApi.Model;
+using SimpleWebApi.Services;
+ 
+namespace SimpleWebApi.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class OurHeroController : ControllerBase
+    {
+        private readonly IOurHeroService _heroService;
+ 
+        public OurHeroController(IOurHeroService heroService)
+        {
+            _heroService = heroService;
+        }
+ 
+        [HttpGet]
+        public IActionResult Get([FromQuery] bool? isActive = null)
+        {
+            return Ok(_heroService.GetAllHeros(isActive));
+        }

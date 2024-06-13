@@ -1,0 +1,71 @@
+                if(cmd_type==100)//是否为数据包命令
+                {
+                    next_dev_sn=pData[0]<<24|pData[1]<<16|pData[2]<<8|pData[3];
+//                    qDebug("next_dev_sn=0x%08X", next_dev_sn);
+                    pData+=4;
+                    parent_sn=curr_dev_sn;
+                    curr_dev_sn=next_dev_sn;
+                    in_len=data_len-8;//下一个数据区的长度
+                    memset(in_buff, 0, IN_BUFF_SIZE);
+                    memcpy(in_buff, pData, in_len);//复制下一个数据单元
+                }
+                else//本机数据,进行处理
+                {
+//                    QByteArray msg_ba((char*)pData, data_len-4);
+//                    qDebug()<<"msg_ba="<<msg_ba.toHex(':');
+                    if(app_id==m_currAppWork.appID)//本项目设备
+                    {
+                        WorkDevStruct *pWorkNode=searchWorkNode(curr_dev_sn);
+                        if(pWorkNode)
+                        {
+                            if(parent_sn>0 && pWorkNode->parentSn != parent_sn)//节点父序列号改变
+                            {
+                                pWorkNode->parentSn=parent_sn;
+//                                requestUpdateWorkName(curr_dev_sn, pWorkNode->devName);//更新父序列号
+                            }
+                            if(parent_sn==0)
+                            {
+                                pWorkNode->encrypt_index=pSeverHead->encrypt_index;//记录网关的加密模式,方便数据下发
+                            }
+                            if(pWorkNode->pModel)
+                            {
+                                pWorkNode->pModel->setRawData(app_id, curr_dev_sn, pack_num, cmd_type, pData, data_len-4);
+                            }
+                            return;
+                        }
+                        else//设备未存在
+                        {
+                            if(m_secCounts>10)//可能是还未从服务器请求下来
+                            {
+                                InitTypeStruct *pInittype=takeInitType(curr_dev_sn);
+                                if(pInittype)
+                                {
+                                    requestAddDevice(curr_dev_sn, parent_sn);//请求添加设备
+                                }
+                            }
+ 
+                        }
+                    }
+                    curr_dev_sn=0;
+                    return;
+                }
+                deep_counts++;
+                if(deep_counts>=5)//嵌套层数
+                {
+                    qDebug("deviceRecvProcess error: deep_counts>DEEP_MAX! parent_sn=%u", parent_sn);
+                    return;
+                }
+            }
+            else
+            {
+                qDebug("deviceRecvProcess error: out_len<=0!");
+                return;
+            }
+        }
+ 
+    }
+    else
+    {
+        qDebug("no found head AA 55");
+    }
+}

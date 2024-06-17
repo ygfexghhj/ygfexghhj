@@ -1,0 +1,15 @@
+</view>
+  <view class="right-Share">
+    <image src="{{imgUrl}}/upload/20220608/share.png" lazy-load="true"></image>
+    <text>立即分享</text>
+  </view>
+</view>
+<!-- 商品配置规格 -->
+<!-- <view class="productInfoBox">
+  <view class="heightInfo"></view>
+  <view class="Distribution" bindtap="chouseAddress">
+    <view class="title-info">配送</view>
+    <view class="chouseSpe">请选择收货地址</view>
+    <image src="{{imgUrl}}/upload/20220608/rightJt.png" lazy-load="true"></image>
+  </view>
+</view> -->

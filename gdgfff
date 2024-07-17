@@ -1,0 +1,40 @@
+        elif self.type == -1:  # 未通过  
+            if Board.button_position[1][0] < mousex < Board.button_position[1][0] + 100 \  
+                    and Board.button_position[1][1] - 50 < mousey < Board.button_position[1][1]:  # 点击重玩按钮  
+                if self.energy_num < 5:  
+                    self.level = 0  
+                self.reset_mode = True  
+            elif Board.button_position[0][0] < mousex < Board.button_position[0][0] + 100 \  
+                    and Board.button_position[0][1] - 50 < mousey < Board.button_position[0][  
+                1]:  # 点击再来5步按钮  
+                if self.money < 5:  
+                    self.level = 0  
+                else:  
+                    self.money -= 5  
+                    self.step += 5  
+                    self.type = 0  # 正在游戏  
+                    self.fail_board = Board(Board.fail, [200, 0])  
+            elif 610 < mousex < 610 + 55 and 205 - 55 < mousey < 205:  
+                self.level = 0  
+                self.reset_mode = True  
+  
+        elif self.type == 0:  # 游戏中  
+            if self.list_x < mousex < self.list_x + Manager.__brick_size * self.width \  
+                    and self.list_y < mousey < self.list_y + Manager.__brick_size * self.height:  
+                mouse_selected = Manager.xy_rc(mousex, mousey)  
+                if self.animal[mouse_selected[0]][mouse_selected[1]] != -1:  
+                    play_sound(Sounds.CLICK)  
+                    self.selected = mouse_selected  
+                    if (self.last_sel[0] == self.selected[0]  
+                        and abs(self.last_sel[1] - self.selected[1]) == 1) \  
+                            or (self.last_sel[1] == self.selected[1]  
+                                and abs(self.last_sel[0] - self.selected[0]) == 1):  
+                        self.swap_sign = 1  # 有效移动，交换  
+            elif Element.stop_position[0] < mousex < Element.stop_position[0] + self.stop_width and \  
+                    Element.stop_position[1] < mousey < Element.stop_position[1] + self.stop_width:  # 点击退出按钮  
+                play_sound(Sounds.CLICK_BUTTON)  
+                self.level = 0  
+                self.reset_mode = True  
+            else:  
+                self.selected = [-1, -1]  
+  
